@@ -43,7 +43,15 @@ const students = [
 // Transform the students array to add an average property
 // Calculate the average of their scores array
 
-const transformedData = students.map((item) => console.log(item));
+const averageScore = (scores) =>
+  scores.reduce((avgScore, score) => avgScore + score, 0) / scores.length;
+
+const transformedData = students.map((item) => {
+  return {
+    ...item,
+    average: averageScore(item.scores),
+  };
+});
 
 // EXPERT
 
@@ -51,4 +59,33 @@ const transformedData = students.map((item) => console.log(item));
 // Each score becomes: { score: 85, grade: 'B', passed: true }
 // Grading: A(90+), B(80-89), C(70-79), D(60-69), F(<60)
 
-const gradedData = students.map((item) => console.log(item));
+const getGrade = (score) => {
+  if (score >= 90) return 'A';
+  if (score >= 80) return 'B';
+  if (score >= 70) return 'C';
+  if (score >= 60) return 'D';
+  return 'F';
+};
+
+const gradeScore = (scores) =>
+  scores.map((score) => {
+    const failed = score < 60;
+
+    return {
+      score: score,
+      grade: getGrade(score),
+      passed: !failed,
+    };
+  });
+
+const gradedData = students.map((item) => {
+  return {
+    ...item,
+    scores: gradeScore(item.scores),
+  };
+});
+
+// transform the students array using map with other array methods:
+// Calculate highest score for each student
+// Determine if they're an honor student (average > 90)
+// Create a summary string: "John Doe: Top Score 92, Honor Student: false"
