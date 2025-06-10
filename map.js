@@ -57,7 +57,7 @@ const transformedData = students.map((item) => {
 
 // EXPERT
 
-// Transform the students array to convert each score to a grade object
+//1. Transform the students array to convert each score to a grade object
 // Each score becomes: { score: 85, grade: 'B', passed: true }
 // Grading: A(90+), B(80-89), C(70-79), D(60-69), F(<60)
 
