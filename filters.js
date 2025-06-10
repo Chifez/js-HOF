@@ -20,7 +20,7 @@ filters are higher orders functions, that transforms an array and return a new a
 //         dogs.push(animals[i])
 // }
 
-// quiz challenges from cursor on filter and my solutions
+// QUIZ CHALLENGES ON FILTER FROM CURSOR
 
 const students = [
   {
