@@ -20,7 +20,7 @@ let totalAmount = orders.reduce((sum, order) => sum + order.amount, 0);
 //     totalAmount +=orders[i].amount
 // }
 
-// QUIZ CHALLENGES ON FILTER FROM CURSOR
+// QUIZ CHALLENGES ON REDUCE FROM CURSOR
 
 const grades = [
   { student: 'Alice', subject: 'Math', score: 85 },
@@ -32,7 +32,7 @@ const grades = [
 ];
 
 //  ADVANCED LEVEL
-// Create an object where keys are subjects and values are arrays of all scores for that subject
+//1. Create an object where keys are subjects and values are arrays of all scores for that subject
 
 const groupedGradesBySubject = grades.reduce((grpGrades, grade) => {
   if (!grpGrades[grade.subject]) {
@@ -89,7 +89,7 @@ const sales = [
   },
 ];
 
-// Create a statistics object for all sales with: total, average, min, max, count
+//1. Create a statistics object for all sales with: total, average, min, max, count
 
 // So i believe we would be creating this based on the category
 // i believe the expected result should be as below

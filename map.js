@@ -19,7 +19,7 @@ const names = animals.map((animal) => animal.name);
 //   names.push(animals[i].name);
 // }
 
-// QUIZ CHALLENGES ON FILTER FROM CURSOR
+// QUIZ CHALLENGES ON MAP FROM CURSOR
 
 const students = [
   { id: 's1', firstName: 'John', lastName: 'Doe', scores: [85, 92, 78, 90] },
@@ -40,12 +40,14 @@ const students = [
 
 //   ADVANCED
 
-// Transform the students array to add an average property
-// Calculate the average of their scores array
+//1. Transform the students array to add an average property
+//2. Calculate the average of their scores array
 
+// first we need a function to get the average score
 const averageScore = (scores) =>
   scores.reduce((avgScore, score) => avgScore + score, 0) / scores.length;
 
+// now we can just transform the array using the average score function
 const transformedData = students.map((item) => {
   return {
     ...item,
@@ -59,6 +61,7 @@ const transformedData = students.map((item) => {
 // Each score becomes: { score: 85, grade: 'B', passed: true }
 // Grading: A(90+), B(80-89), C(70-79), D(60-69), F(<60)
 
+// first i need a function to get the grade
 const getGrade = (score) => {
   if (score >= 90) return 'A';
   if (score >= 80) return 'B';
@@ -67,6 +70,7 @@ const getGrade = (score) => {
   return 'F';
 };
 
+// now i can use the function to score the grade
 const gradeScore = (scores) =>
   scores.map((score) => {
     const failed = score < 60;
@@ -78,6 +82,7 @@ const gradeScore = (scores) =>
     };
   });
 
+// now we can just transform the entire students array
 const gradedData = students.map((item) => {
   return {
     ...item,
