@@ -83,14 +83,27 @@ const gradeScore = (scores) =>
   });
 
 // now we can just transform the entire students array
-const gradedData = students.map((item) => {
+const gradedData = students.map((student) => {
   return {
-    ...item,
-    scores: gradeScore(item.scores),
+    ...student,
+    scores: gradeScore(student.scores),
   };
 });
 
-// transform the students array using map with other array methods:
-// Calculate highest score for each student
-// Determine if they're an honor student (average > 90)
-// Create a summary string: "John Doe: Top Score 92, Honor Student: false"
+//1. transform the students array using map with other array methods:
+//2. Calculate highest score for each student
+//3. Determine if they're an honor student (average > 90)
+//4. Create a summary string: "John Doe: Top Score 92, Honor Student: false"
+
+// transforming the array and getting the student summary and adding the max score and honor student is as simple as this
+const studentSummary = students.map((student) => {
+  const highestScore = Math.max(...student.scores);
+  const isHonorStudent = averageScore(student.scores) >= 90;
+  const summary = `${student.firstName} ${student.lastName}: top score ${highestScore}, Honor Student : ${isHonorStudent}`;
+  return {
+    ...student,
+    maxScore: highestScore,
+    honorStudent: isHonorStudent,
+    summary,
+  };
+});
