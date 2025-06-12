@@ -50,7 +50,7 @@ function binarySearch(array, target) {
   }
 
   const result = binarySearch(array, target);
-  return result + (array[index] < target ? 1 : 0);
+  return result + (array[index] < target ? 1 : 0); // here
 }
 
 // ADVANCED
